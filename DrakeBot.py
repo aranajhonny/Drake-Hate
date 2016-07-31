@@ -24,6 +24,7 @@ num_tweets_logged = None
 
 # Helper functions
 
+
 def remove_quoted_text(twext):
     # alternate way of doing it?
     pieces = twext.split('"')
@@ -72,7 +73,7 @@ def twitter_oauth():
 
 def print_tweet_info(classifier, tweet):
     '''Prints some basic info about the given tweet to stdout.'''
-    category = classifier.classify(tweet.text).upper()
+    category = classifier.classify_eighty_percent(tweet.text).upper()
     print('%s - (%s) %s: %s\n' % (
         category, tweet.created_at, tweet.author.screen_name, tweet.text))
 
@@ -95,7 +96,7 @@ def retweet(dev, api, wks, tweets):
                 print('Retweeting {0}...\n'.format(tweet.text))
 
         # Testing/ debug stuff
-        if dev: 
+        if dev:
             print_tweet_info(classifier, tweet)
     return num_retweets
 
