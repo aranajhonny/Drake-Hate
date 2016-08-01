@@ -85,7 +85,6 @@ def retweet(dev, api, wks, tweets):
     classifier = Classifier()
     for tweet in tweets:
         if any(keyword in tweet.text.lower() for keyword in RETWEET_KEYWORDS) and num_tweets_logged < MAX_NUM_TWEETS:
-            print('Adding "{0}" to spreadsheet...\n'.format(tweet.text))
             num_tweets_logged = add_to_spreadsheet(wks, num_tweets_logged, tweet)
 
         for phrase in OBVIOUS_PHRASES:
@@ -95,8 +94,7 @@ def retweet(dev, api, wks, tweets):
                 print('Retweeting {0}...\n'.format(tweet.text))
 
         # Testing/ debug stuff
-        if dev: 
-            print_tweet_info(classifier, tweet)
+        print_tweet_info(classifier, tweet)
     return num_retweets
 
 
