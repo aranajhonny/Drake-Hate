@@ -95,12 +95,7 @@ def retweet(dev, api, wks, tweets):
                 print('Retweeting {0}...\n'.format(tweet.text))
 
         # Testing/ debug stuff
-<<<<<<< HEAD
         print_tweet_info(classifier, tweet)
-=======
-        if dev:
-            print_tweet_info(classifier, tweet)
->>>>>>> f4b98548f4a07234b7a55a16dc8f3a314e16bef0
     return num_retweets
 
 
