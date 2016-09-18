@@ -85,7 +85,8 @@ def retweet(dev, api, wks, tweets):
 
     classifier = Classifier()
     for tweet in tweets:
-        if any(keyword in tweet.text.lower() for keyword in RETWEET_KEYWORDS) and num_tweets_logged < MAX_NUM_TWEETS:
+        # if any(keyword in tweet.text.lower() for keyword in RETWEET_KEYWORDS) and num_tweets_logged < MAX_NUM_TWEETS:
+        if classifier.classify_eighty_percent(tweet.text) == 'negative':
             num_tweets_logged = add_to_spreadsheet(wks, num_tweets_logged, tweet)
 
         for phrase in OBVIOUS_PHRASES:
