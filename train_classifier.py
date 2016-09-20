@@ -73,7 +73,7 @@ def train_naive_bayes(train_tweets, test_tweets):
     # feature-value representation of our dataset.
     training_set = analyzer.apply_features(train_tweets)
     test_set = analyzer.apply_features(test_tweets)
-    print(training_set)
+
     # Train the Naive Bayes Classifier.
     naive_bayes = analyzer.train(
         NaiveBayesClassifier.train, training_set)
