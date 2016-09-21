@@ -42,7 +42,7 @@ word_blacklist = [
   '#np',
   '#onrepeat',
   '#streaming',
-  '#applemusic'
+  '#applemusic',
   'ft.',
   'feat',
   '(explicit)',
@@ -76,5 +76,6 @@ word_blacklist = [
   'nathan drake',
   'drake laroche',
   'chris drake',
-  'francis drake'
+  'francis drake',
+  'nick drake'
 ]
