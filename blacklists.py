@@ -34,7 +34,7 @@ word_blacklist = [
   'rt',
   'u♺',
 
-  # Variants of 'listening now'
+  # Filter out 'listening now' tweets
   'u🎧',
   '#listeningnow',
   '#nowlistening',
@@ -42,12 +42,39 @@ word_blacklist = [
   '#np',
   '#onrepeat',
   '#streaming',
+  '#applemusic'
+  'ft.',
+  'feat',
+  '(explicit)',
+  'playing now',
+  '#hotworldpowered',
+  'on air',
+  '#allhits',
+  'radio edit',
+  'club mix',
 
+  # Popular lyrics that could be misconstrued as hate
+  'never fuck drake',
+
+  # Breaking news/ tabloids
+  'first look:',
+  'ggentertainment:',
+  '#lbnews',
+  '#musicnews',
+  '#repost',
+  'daily mail',
+  'rolling stone',
+  'reportedly',
+
+  # Drake & Josh
   'drake bell',
   'josh',
 
+  # Other celebrities named Drake
   'mary drake',
   'jessica drake',
   'nathan drake',
-  'drake laroche'
+  'drake laroche',
+  'chris drake',
+  'francis drake'
 ]

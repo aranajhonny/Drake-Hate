@@ -101,8 +101,7 @@ def retweet(dev, api, wks, tweets):
 
 
 def contains_word_in_blacklist(tweet):
-    words = [word.lower() for word in tweet.text.split()]
-    return any(word in words for word in word_blacklist)
+    return any(word in tweet.text.lower() for word in set(word_blacklist))
 
 
 def contains_drake(tweet):
@@ -117,15 +116,25 @@ def blacklisted_author(tweet):
 def filter_tweets(tweets):
     clean_tweets = []
     for tweet in tweets:
+        tweet.text = remove_quoted_text(tweet.text)
+        if not tweet.text.strip():
+            continue
+
+        # Skip tweets that aren't about Drake
+        if not contains_drake(tweet):
+            continue
+
+        # Skip "fuck, marry, kill" tweets
+        if all(x in tweet.text.lower() for x in ["fuck", "marry", "kill"]):
+            continue
+        
+        # Skip tweets with blacklisted words or authors
         if contains_word_in_blacklist(tweet):
             continue
         if blacklisted_author(tweet):
             continue
-        if not contains_drake(tweet):
-            continue
-        tweet.text = remove_quoted_text(tweet.text)
-        if tweet.text.strip():
-            clean_tweets.append(tweet)
+        
+        clean_tweets.append(tweet)
 
     clean_tweets.reverse()
     return clean_tweets
